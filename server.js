@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 app.post('/api/chess', (req, res) => {
 	var entry = req.body;
-	defaultCollection.create(entry, (err, entry) => {
+	chess.create(entry, (err, entry) => {
 		if (err) {
 			throw err;
 		}
@@ -25,7 +25,7 @@ app.post('/api/chess', (req, res) => {
 });
 
 app.get('/api/chess', (req, res) => {
-	defaultCollection.find((err, chess) => {
+	chess.find((err, chess) => {
 		if (err) {
 			throw err;
 		}
@@ -34,7 +34,7 @@ app.get('/api/chess', (req, res) => {
 });
 
 app.put('/api/chess/:_id', (req, res) => {
-	defaultCollection.findByIdAndUpdate(req.params._id, req.body, {new:true}, (err, entry) => {
+	chess.findByIdAndUpdate(req.params._id, req.body, {new:true}, (err, entry) => {
 		if (err) {
 			throw err;
 		}
@@ -43,7 +43,7 @@ app.put('/api/chess/:_id', (req, res) => {
 });
 
 // app.delete('/api/chess/:_id', (req, res) => {
-// 	defaultCollection.findByIdAndRemove(req.params._id, (err, result) => {
+// 	chess.findByIdAndRemove(req.params._id, (err, result) => {
 // 		if (err) {
 // 			throw err;
 // 		}
